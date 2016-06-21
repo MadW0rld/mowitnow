@@ -1,1 +1,1 @@
--The input file is entered as an argument of the main method with the name
+The input file path is entered as an argument of the main method
