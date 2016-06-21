@@ -13,7 +13,7 @@ import java.util.*;
 import java.util.stream.Stream;
 
 /**
- * Parses a file
+ * Parses a file to build a {@link com.scoquard.mowitnow.core.IGarden}
  *
  * Created by scoquard on 17/06/2016.
  */
