@@ -1,0 +1,1 @@
+-The input file is entered as an argument of the main method with the name
