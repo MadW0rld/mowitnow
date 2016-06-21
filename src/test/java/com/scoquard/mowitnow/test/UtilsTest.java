@@ -2,7 +2,7 @@ package com.scoquard.mowitnow.test;
 
 import com.scoquard.mowitnow.GardenParsingException;
 import com.scoquard.mowitnow.Instruction;
-import com.scoquard.mowitnow.farm.Cardinal;
+import com.scoquard.mowitnow.Cardinal;
 import com.scoquard.mowitnow.farm.Dimensions;
 import com.scoquard.mowitnow.farm.Position;
 import com.scoquard.mowitnow.tools.Utils;
@@ -21,8 +21,15 @@ import static org.junit.Assert.assertEquals;
 public class UtilsTest {
 
     @Test
-    public void testIsDimensionsExceptionIsThrown() {
+    public void testIfDimensionsExceptionIsThrownWhenWrongFormat() {
         when(() -> Utils.parseDimensions("ab a"))
+                .thenA(GardenParsingException.class)
+                .isThrown();
+    }
+
+    @Test
+    public void testIfDimensionsExceptionIsThrownWhenNegative() {
+        when(() -> Utils.parseDimensions("-5 5"))
                 .thenA(GardenParsingException.class)
                 .isThrown();
     }
@@ -38,7 +45,7 @@ public class UtilsTest {
     }
 
     @Test
-    public void testIsInstructionsExceptionIsThrown() {
+    public void testIfInstructionsExceptionIsThrown() {
         when(() -> Utils.parseInstructions("AG1DG"))
                 .thenA(GardenParsingException.class)
                 .isThrown();
@@ -55,7 +62,7 @@ public class UtilsTest {
     }
 
     @Test
-    public void testIsPositionExceptionIsThrown() {
+    public void testIfPositionExceptionIsThrown() {
         when(() -> Utils.parseInstructions("AG1DG"))
                 .thenA(GardenParsingException.class)
                 .isThrown();

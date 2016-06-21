@@ -1,5 +1,7 @@
 package com.scoquard.mowitnow.farm;
 
+import com.scoquard.mowitnow.Cardinal;
+
 /**
  * Position of the mower in the garden
  *

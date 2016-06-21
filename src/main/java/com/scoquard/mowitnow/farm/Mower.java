@@ -1,6 +1,8 @@
 package com.scoquard.mowitnow.farm;
 
+import com.scoquard.mowitnow.Cardinal;
 import com.scoquard.mowitnow.Instruction;
+import com.scoquard.mowitnow.core.IMower;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -8,10 +10,10 @@ import java.util.List;
 
 /**
  * A mower in the garden
- *
+ * <p>
  * Created by scoquard on 17/06/2016.
  */
-public class Mower {
+public class Mower implements IMower {
 
     private static final Logger logger = LogManager.getLogger(Mower.class);
 
@@ -21,32 +23,33 @@ public class Mower {
 
     /**
      * Constructs a mower with
-     * @param name the name of the mower
+     *
+     * @param name            the name of the mower
      * @param initialPosition of the mower
-     * @param instructions to mow
+     * @param instructions    to mow
      */
-    public Mower(String name, Position initialPosition, final List<Instruction> instructions) {
+    public Mower(final String name, Position initialPosition, final List<Instruction> instructions) {
         this.name = name;
         this.position = initialPosition;
         this.instructions = instructions;
     }
 
+    @Override
     public String getName() {
         return name;
     }
 
+    @Override
     public Position getPosition() {
         return position;
     }
 
+    @Override
     public List<Instruction> getInstructions() {
         return instructions;
     }
 
-    /**
-     * Use this mower
-     * @param gardenDimensions dimensions of the garden
-     */
+    @Override
     public void useThis(Dimensions gardenDimensions) {
         logger.info("Starting mowing with mower " + getName() + "...");
         for (Instruction instruction : getInstructions()) {
@@ -84,14 +87,17 @@ public class Mower {
 
     private Position move() {
         Cardinal orientation = getPosition().getOrientation();
-        if (Cardinal.N.equals(orientation)) {
-            return moveUp();
-        } else if (Cardinal.E.equals(orientation)) {
-            return moveRight();
-        } else if (Cardinal.S.equals(orientation)) {
-            return moveDown();
-        } else {
-            return moveLeft();
+        switch (orientation) {
+            case N:
+                return moveUp();
+            case E:
+                return moveRight();
+            case S:
+                return moveDown();
+            case W:
+                return moveLeft();
+            default:
+                throw new IllegalArgumentException("This case is not supported");
         }
     }
 
@@ -111,9 +117,7 @@ public class Mower {
         return new Position(getPosition().getX() - 1, getPosition().getY(), getPosition().getOrientation());
     }
 
-    /**
-     * prints the position of the mower
-     */
+    @Override
     public void printPosition() {
         logger.info("The position of the mower " + getName() + " is " + getPosition().toString());
     }

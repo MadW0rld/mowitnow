@@ -1,7 +1,7 @@
 package com.scoquard.mowitnow.tools;
 
 import com.scoquard.mowitnow.*;
-import com.scoquard.mowitnow.farm.Cardinal;
+import com.scoquard.mowitnow.Cardinal;
 import com.scoquard.mowitnow.farm.Dimensions;
 import com.scoquard.mowitnow.farm.Position;
 
@@ -26,7 +26,7 @@ public class Utils {
     /**
      * Parses a string to a position
      * @param positionAsString formatted 'x y O' with O = orientation
-     * @return the parsed {@link com.scoquard.mowitnow.farm.Position}
+     * @return the parsed {@link Position}
      * @throws GardenParsingException
      */
     public static Position parsePosition(String positionAsString) throws GardenParsingException {

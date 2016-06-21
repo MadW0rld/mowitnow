@@ -1,4 +1,4 @@
-package com.scoquard.mowitnow.farm;
+package com.scoquard.mowitnow;
 
 import java.util.Arrays;
 import java.util.List;
@@ -13,7 +13,8 @@ public enum Cardinal {
     W; /**WEST*/
 
     /**
-     * rotates the mower to the right
+     * returns the cardinal point on the right-hand-side of
+     * the current cardinal point
      * @return new orientation
      */
     public Cardinal rotateRight() {
@@ -27,7 +28,8 @@ public enum Cardinal {
     }
 
     /**
-     * rotates the mower to the light
+     * returns the cardinal point on the left-hand-side of
+     * the current cardinal point
      * @return new orientation
      */
     public Cardinal rotateLeft() {

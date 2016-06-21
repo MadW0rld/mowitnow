@@ -1,8 +1,6 @@
-package com.scoquard.mowitnow.farm;
+package com.scoquard.mowitnow;
 
-import com.scoquard.mowitnow.GardenBuilder;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import com.scoquard.mowitnow.core.IGarden;
 
 import java.io.*;
 
@@ -13,8 +11,6 @@ import java.io.*;
  */
 public class Main {
 
-    private static final Logger logger = LogManager.getLogger(Main.class);
-
     private Main() {}
 
     /**
@@ -22,14 +18,17 @@ public class Main {
      * @param args entry parameters
      */
     public static void main(String[] args) {
+        if (args.length == 0) {
+            throw new IllegalArgumentException("You must enter a file path as an argument");
+        }
         if (args.length > 1) {
-            logger.error("Only one parameter allowed");
+            throw new IllegalArgumentException("Only one parameter allowed");
         }
         String fileName = args[0];
         File f = new File(fileName);
 
         GardenBuilder builder = new GardenBuilder(f);
-        Garden garden = builder.build();
+        IGarden garden = builder.build();
 
         garden.mow();
     }

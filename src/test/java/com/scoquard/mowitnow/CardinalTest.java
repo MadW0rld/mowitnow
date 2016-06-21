@@ -1,6 +1,5 @@
 package com.scoquard.mowitnow;
 
-import com.scoquard.mowitnow.farm.Cardinal;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
