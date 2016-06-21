@@ -1,11 +1,10 @@
-package com.scoquard.mowitnow.test;
+package com.scoquard.mowitnow.tools;
 
 import com.scoquard.mowitnow.GardenParsingException;
 import com.scoquard.mowitnow.Instruction;
 import com.scoquard.mowitnow.Cardinal;
 import com.scoquard.mowitnow.farm.Dimensions;
 import com.scoquard.mowitnow.farm.Position;
-import com.scoquard.mowitnow.tools.Utils;
 import org.junit.Test;
 
 import java.util.Arrays;
