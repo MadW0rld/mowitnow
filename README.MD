@@ -1,3 +1,3 @@
--The input file path is entered as an argument of the main method
--the file should be formatted like the file mowers.txt at the root of the project
+-The input file path is entered as an argument of the main method<br/>
+-the file should be formatted like the file mowers.txt at the root of the project<br/>
 -The output is displayed in the log of the application
